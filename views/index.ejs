@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>yukAhh</title>
+    <% include ./style/head %>
+</head>
+
+
+<body>
+
+    <% include ./style/header %>
+    <ul>
+        <li>
+            <ul>
+                <%data.forEach(subdata=>{ %>
+                <img src="<%=subdata.UrlImage%>">
+                <li>
+                    <%=subdata.name%>
+                </li>
+                <li>
+                    <%=subdata.address%>
+                </li>
+                <li>
+                    <%=subdata.gender%>
+                </li>
+                <li>Rp.
+                    <%=subdata.sallary%>,-</li>
+                <li>
+                    <%= new Date().getFullYear()-(new Date(subdata.birthday).getFullYear())%> year old</li>
+                <% }) %>
+            </ul>
+        </li>
+    </ul>
+</body>
+
+</html>
