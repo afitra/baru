@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>yukAhh</title>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <a id="profil" href="/profil">profil</a>
+        </li>
+        <li>
+            <a id="favourite" href="/home/favourite">favourite</a>
+        </li>
+        <li>
+            <a id="update" href="/update">update</a>
+        </li>
+        <li>
+            <a id="delete" href="/delete">delete</a>
+        </li>
+        <li>
+            <a id="logout" href="/home/logout">logout</a>
+        </li>
+        <li>
+            <a id="kencan" href="/home/kencan">yukAhh jalan</a>
+        </li>
+        <li>
+            <a id="janjian" href="/home/janjian">list janjian</a>
+        </li>
+    </ul>
+    <%data.forEach(subdata=>{ %>
+    <table border="2">
+        <tr>
+            <td>
+                <img src="<%=subdata.UrlImage%>">
+            </td>
+            <td>
+                <ul>
+                    <li>
+                        <%=subdata.name%>
+                    </li>
+                    <li>
+                        <%=subdata.address%>
+                    </li>
+                    <li>
+                        <%=subdata.gender%>
+                    </li>
+                    <li>Rp.
+                        <%=subdata.sallary%>,-</li>
+                    <li>
+                        <%= new Date().getFullYear()-(new Date(subdata.birthday).getFullYear())%> year old</li>
+                </ul>
+            </td>
+            <td>
+                <a id="like" href="/home/like/<%=subdata.id%>">LIKE |</a>
+            </td>
+            <td>
+                <a id="dislike" href="/home/dislike/<%=subdata.id%>">DISLIKE |</a>
+            </td>
+        </tr>
+    </table>
+    <% }) %>
+</body>
+
+</html>

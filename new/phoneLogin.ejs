@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include ./style/head %>
+  <meta charset="UTF-8">
+  <title>phone Login</title>
+  <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+  <script>
+    const config = {
+      apiKey: "AIzaSyDDGGqTLl1x6zpBsuE4i5C-x62kw34daig",
+      authDomain: "yukahh-a0502.firebaseapp.com",
+      databaseURL: "https://yukahh-a0502.firebaseio.com",
+      projectId: "yukahh-a0502",
+      storageBucket: "yukahh-a0502.appspot.com",
+      messagingSenderId: "583132903694"
+    };
+    firebase.initializeApp(config);
+  </script>
+
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+  <script type="text/javascript">
+    var uiConfig = {
+      callbacks: {
+        signInSuccessWithAuthResult: (user) => {
+          $.ajax({
+            method: "POST",
+            url: "/phoneLogin",
+            data: { phone: user.phoneNumber }
+          })
+            // .done(function (msg) {
+            //   window.location = 'http://www.google.com'
+            // })
+            // .fail(function (jqXHR, textStatus) {
+            //   window.location = 'http://www.google.com'
+            // });
+      }
+    },
+      signInOptions: [
+        firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+      ],
+    };
+
+    var ui = new firebaseui.auth.AuthUI(firebase.auth());
+    ui.start('#firebaseui-auth-container', uiConfig);
+  </script>
+</head>
+<%include ./style/header %>
+    <body>
+    <div id="firebaseui-auth-container"></div>
+    </body>
+<% include ./style/footer %>
+</html>

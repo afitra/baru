@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/feedback" method="POST">
+
+        <h3>
+            rating
+        </h3>
+
+        <select name="rating">
+            <option value="1">sangat buruk</option>
+            <option value="2">buruk</option>
+            <option value="3">biasa</option>
+            <option value="4">lumayan</option>
+            <option value="5">sangat baik</option>
+        </select>
+
+        <br>
+        <h3>komentar anda</h3>
+
+        <textarea name="comment" cols="35" wrap="soft"></textarea>
+        <button type="submit" value="feedback">submit</button>
+    </form>
+</body>
+
+</html>
